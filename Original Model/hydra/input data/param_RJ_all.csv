@@ -1,0 +1,13 @@
+id, case, compulsory, SOP
+0,pool,True,True
+1,pool,True,False
+2,pool,False,True
+3,pool,False,False
+4,peer,True,True
+5,peer,True,False
+6,peer,False,True
+7,peer,False,False
+8,competition,True,True
+9,competition,True,False
+10,competition,False,True
+11,competition,False,False

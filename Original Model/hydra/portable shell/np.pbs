@@ -1,0 +1,30 @@
+#!/bin/bash -l
+
+#PBS -l nodes=1:ppn=30
+#PBS -l mem=4gb
+#PBS -l walltime=24:00:00
+#PBS -N no_punish_november_2018
+
+# Install additional software
+module purge
+module load worker Python/3.6.4-foss-2018a
+
+# Prepare variables
+PROJECT_NAME=ostracism_implement
+PROJECT_ROOT=${VSC_HOME}
+TMP_RESULT_DIR=${VSC_DATA}/results/${PROJECT_NAME}/SH
+SAVE_PATH=${VSC_DATA}/results/${PROJECT_NAME}/${PBS_JOBID}/SH/${id}
+
+# Run commands
+## Make project visible for python interpreter
+export PYTHONPATH=${PYTHONPATH}:${PROJECT_ROOT}
+## Create directories
+mkdir -p ${TMP_RESULT_DIR}
+mkdir -p ${SAVE_PATH}
+## Go to the folder containing the Python script to launch
+cd ${PROJECT_ROOT}
+## Launch script with necessary parameters
+python3 hydra_np.py $s $N $TMP_RESULT_DIR
+# Move results from /tmp to safe space
+echo "Moving files from $TMP_RESULT_DIR to $SAVE_PATH"
+mv $TMP_RESULT_DIR $SAVE_PATH
