@@ -1,0 +1,17 @@
+id, case, compulsory, SOP
+0,no_punishment,True,True
+1,no_punishment,True,False
+2,no_punishment,False,True
+3,no_punishment,False,False
+4,pool,True,True
+5,pool,True,False
+6,pool,False,True
+7,pool,False,False
+8,peer,True,True
+9,peer,True,False
+10,peer,False,True
+11,peer,False,False
+12,competition,True,True
+13,competition,True,False
+14,competition,False,True
+15,competition,False,False
